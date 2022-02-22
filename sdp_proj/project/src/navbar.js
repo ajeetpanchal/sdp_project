@@ -8,6 +8,13 @@ import './Login.js'
 import './start'
 // import {db, auth} from "./firebase"
 
+// const handleLogout = () => {
+
+//   setUser({});
+//   setEmail("");
+//   setPassword("");
+//   localStorage.clear();
+// }; 
 
 export default function Navbar(){
       // function logoutFunction(){
@@ -54,7 +61,8 @@ export default function Navbar(){
       </nav>
       {/* <a href="#book-a-table" className="book-a-table-btn scrollto d-none d-lg-flex">Log out</a> */}
       {/* <a href="/" className="book-a-table-btn scrollto d-none d-lg-flex">Log out</a> */}
-      <a href="/login" className="book-a-table-btn scrollto d-none d-lg-flex" >Sign out</a>
+      {/* <a href="/login" className="book-a-table-btn scrollto d-none d-lg-flex" >Sign out</a> */}
+      <button  className="book-a-table-btn scrollto d-none d-lg-flex" style={{color:"black"}}/*onClick={handleLogout}*/>Sign out</button>
 
     </div>
   </header>
