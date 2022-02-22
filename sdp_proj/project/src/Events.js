@@ -8,6 +8,7 @@ import Frame from "react-frame-component";
 import './events.css'
 
 
+
 import React, { Component } from "react";
 
 class Events extends Component {
@@ -62,7 +63,7 @@ class Events extends Component {
                                             <div className="swiper-slide">
                                                 <div className="row event-item">
                                                     <div className="col-lg-6">
-                                                        <img src={require("./assets/img/event-birthday.jpg")} className="img-fluid" alt="" />
+                                                        <img src={Events.url} className="img-fluid" alt=" " />
                                                     </div>
 
                                                     <div className="col-lg-6 pt-4 pt-lg-0 content">
@@ -72,13 +73,13 @@ class Events extends Component {
                                                         </div>
 
                                                         <p className="fst-italic">
-                                                            Location: {Events.location}
+                                                            Location:     {Events.location}
                                                         </p>
                                                         <ul>
-                                                            <li><i className="bi bi-check-circled"></i>Date:{Events.date}</li>
-                                                            <li><i className="bi bi-check-circled"></i>Time:{Events.time}</li>
-                                                            <li><i className="bi bi-check-circled"></i>Fees:{Events.amount}/-</li>
-                                                            <li><i className="bi bi-check-circled"></i>No.of Participants required:{Events.noOfParticipants}</li>
+                                                            <li><i className="bi bi-check-circled"></i>Date:   {Events.date}</li>
+                                                            <li><i className="bi bi-check-circled"></i>Time:   {Events.time}</li>
+                                                            <li><i className="bi bi-check-circled"></i>Fees:   {Events.amount}/-</li>
+                                                            <li><i className="bi bi-check-circled"></i>No.of Participants required:  {Events.noOfParticipants}</li>
                                                         </ul>
 
 
