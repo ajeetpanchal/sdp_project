@@ -1,72 +1,130 @@
-import React from 'react'
-import './addevent.css'
-const updateevent = () => {
-    return (
-        <>
-            <div className='bg'>
-            <div className='container'>
-            <form1>
-              <h2>Update Event</h2>
-  <div className="form-group">
-    <label for="exampleFormControlInput1">Event Name</label>
-    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder=" Enter event name"/>
-  </div>
-  <div className="form-group">
-    <label for="exampleFormControlInput1">Location</label>
-    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter location"/>
-  </div>
-  <div className="form-group">
-    <label for="exampleFormControlInput1">Date</label>
-    <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="Enter date"/>
-  </div>
-  <div className="form-group">
-    <label for="exampleFormControlInput1">Time</label>
-    <input type="time" class="form-control" id="exampleFormControlInput1" placeholder="Enter time"/>
-  </div>
-  <div className="form-group">
-    <label for="exampleFormControlInput1">Amount</label>
-    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter amount"/>
-  </div>
-  <div className="form-group">
-    <label for="exampleFormControlInput1">No.of participants required</label>
-    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter no.of participants"/>
-  </div>
-  <div className="form-group">
-    <label for="exampleFormControlInput1">Enter appropriate image for event</label>
-    <br/>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1" placeholder="Enter appropriate image for event"/>
-  </div>
-  {/* <div className="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select className="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div> */}
-  {/* <div className="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div> */}
-  <div className="form-group">
-    <label for="exampleFormControlTextarea1">Add Description</label>
-    <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-  <div className="text-center"><button type="submit">Submit</button></div>
-</form1>
-</div>
-    </div>
+// import React, { useEffect, useState } from "react";
+import Footer from "./Footer";
+import Navbar from "./navbar";
+import { Link, NavLink } from "react-router-dom";
+import "./updateeventForm";
+import { db } from "./firebase";
+import Frame from "react-frame-component";
+import './events.css'
 
-        </>
-    )
+
+import React, { Component } from "react";
+
+class Updateevents extends Component {
+
+    state = {
+        info: [],
+    };
+
+    fetchData = () => {
+        db.collection("Events")
+            .get()
+            .then((querySnapshot) => {
+                // Loop through the data and store
+                // it in array to display
+                querySnapshot.forEach((element) => {
+                    var data = element.data();
+                    // console.log(data);
+                    let { info } = this.state;
+                    info.push(data);
+                    this.setState({ info });
+                });
+            });
+    };
+
+    componentDidMount = () => {
+        this.fetchData();
+    };
+
+    render() {
+        // const myStyle = {
+        //     color: "black",
+        //     background:"hidden",
+        //     font:"40px",
+        //     padding:"0px",
+        //     margin:"0px",
+        //     fontFamily: "Arial"
+
+        //   };
+        return (
+            <div>
+                {/* <Navbar /> */}
+                {/* <p style={myStyle}>Events</p> */}
+                {this.state.info.map((Events, index) => (
+                      
+                    <div className="btns">
+                        <div>
+                            <section id="events" className="events">
+                                <div className="container">
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br/>
+
+                                    {/* <div className="section-title">
+                                        <p>Events</p> */}
+                                        {/* <p>Organize Your Events in our Restaurant</p> */}
+                                    {/* </div> */}
+
+
+                                    <div className="events-slider swiper">
+                                        <div className="swiper-wrapper">
+
+                                            <div className="swiper-slide">
+                                                <div className="row event-item">
+                                                    <div className="col-lg-6">
+                                                        <img src={require("./assets/img/event-birthday.jpg")} className="img-fluid" alt="" />
+                                                    </div>
+
+                                                    <div className="col-lg-6 pt-4 pt-lg-0 content">
+                                                        <h3>{Events.name}</h3>
+                                                        <div className="price">
+                                                            {/* <p><span>$189</span></p> */}
+                                                        </div>
+
+                                                        <p className="fst-italic">
+                                                            Location:     {Events.location}
+                                                        </p>
+                                                        <ul>
+                                                            <li><i className="bi bi-check-circled"></i>Date:   {Events.date}</li>
+                                                            <li><i className="bi bi-check-circled"></i>Time:   {Events.time}</li>
+                                                            <li><i className="bi bi-check-circled"></i>Fees:   {Events.amount}/-</li>
+                                                            <li><i className="bi bi-check-circled"></i>No.of Participants required:  {Events.noOfParticipants}</li>
+                                                        </ul>
+
+
+                                                        <p>
+                                                            {Events.desc}
+                                                        </p>
+                                                        <Link to="/updateeventForm" className="book-a-table-btn ">Update</Link>
+                                                        {/* <Link to="/" className="book-a-table-btn ">Update</Link>
+                                <Link to="/" className="book-a-table-btn ">Delete</Link> */}
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div className="swiper-pagination"></div>
+
+                                    </div>
+
+                                </div>
+                            </section>
+
+                        </div>
+
+                    </div>
+
+                ))}
+                {/* <Footer /> */}
+            </div>
+        )
+    }
+
 }
 
-export default updateevent
+export default Updateevents;

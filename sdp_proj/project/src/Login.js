@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom";
 import app, { auth } from './firebase'
 import 'firebase/compat/auth'
 
+ 
 
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  // const [error,setError]=useState('');
   // const toast=useToast();
 
   // const handleForgotPassword=(email) =>{
@@ -27,11 +28,18 @@ const Login = () => {
 
   const handleSubmit = (event) =>{
     event.preventDefault()
+    // clearErrors("API ERROR");
     app.auth().signInWithEmailAndPassword(email, password)
     .then
     (()=>{
+      history.push("/");
       navigate("/home")
     })
+    // .catch((error)=>{
+    //     setError("API ERROR",{
+    //        messsage:"Email or password would be invalid",
+    //     });
+    // });
   }
 
     let navigate = useNavigate();

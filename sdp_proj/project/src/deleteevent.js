@@ -1,27 +1,130 @@
-// import {React,Component} from 'react';
-// import './deleteevent.css'
+// import React, { useEffect, useState } from "react";
+import Footer from "./Footer";
+import Navbar from "./navbar";
+import { Link, NavLink } from "react-router-dom";
+// import "./Registration";
+import { db } from "./firebase";
+import Frame from "react-frame-component";
+import './events.css'
 
-// const deleteevent= () => {
-//   return <>
-  
-//   <button onClick="document.getElementById('id01').style.display='block'">Open Modal</button>
 
-// <div id="id01" class="modal">
-//   <span onClick="document.getElementById('id01').style.display='none'" className="close" title="Close Modal">&times;</span>
-//   <form className="modal-content" action="/action_page.php">
-//     <div className="container">
-//       <h1>Delete Account</h1>
-//       <p>Are you sure you want to delete your account?</p>
+import React, { Component } from "react";
 
-//       <div className="clearfix">
-//         <button type="button" className="cancelbtn">Cancel</button>
-//         <button type="button" className="deletebtn">Delete</button>
-//       </div>
-//     </div>
-//   </form>
-// </div>
+class DeleteEvents extends Component {
 
-//   </>;
-// }
+    state = {
+        info: [],
+    };
 
-// export default deleteevent;
+    fetchData = () => {
+        db.collection("Events")
+            .get()
+            .then((querySnapshot) => {
+                // Loop through the data and store
+                // it in array to display
+                querySnapshot.forEach((element) => {
+                    var data = element.data();
+                    // console.log(data);
+                    let { info } = this.state;
+                    info.push(data);
+                    this.setState({ info });
+                });
+            });
+    };
+
+    componentDidMount = () => {
+        this.fetchData();
+    };
+
+    render() {
+        // const myStyle = {
+        //     color: "black",
+        //     background:"hidden",
+        //     font:"40px",
+        //     padding:"0px",
+        //     margin:"0px",
+        //     fontFamily: "Arial"
+
+        //   };
+        return (
+            <div>
+                {/* <Navbar /> */}
+                {/* <p style={myStyle}>Events</p> */}
+                {this.state.info.map((Events, index) => (
+                      
+                    <div className="btns">
+                        <div>
+                            <section id="events" className="events">
+                                <div className="container">
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br/>
+
+                                    {/* <div className="section-title">
+                                        <p>Events</p> */}
+                                        {/* <p>Organize Your Events in our Restaurant</p> */}
+                                    {/* </div> */}
+
+
+                                    <div className="events-slider swiper">
+                                        <div className="swiper-wrapper">
+
+                                            <div className="swiper-slide">
+                                                <div className="row event-item">
+                                                    <div className="col-lg-6">
+                                                        <img src={require("./assets/img/event-birthday.jpg")} className="img-fluid" alt="" />
+                                                    </div>
+
+                                                    <div className="col-lg-6 pt-4 pt-lg-0 content">
+                                                        <h3>{Events.name}</h3>
+                                                        <div className="price">
+                                                            {/* <p><span>$189</span></p> */}
+                                                        </div>
+
+                                                        <p className="fst-italic">
+                                                            Location:     {Events.location}
+                                                        </p>
+                                                        <ul>
+                                                            <li><i className="bi bi-check-circled"></i>Date:   {Events.date}</li>
+                                                            <li><i className="bi bi-check-circled"></i>Time:   {Events.time}</li>
+                                                            <li><i className="bi bi-check-circled"></i>Fees:   {Events.amount}/-</li>
+                                                            <li><i className="bi bi-check-circled"></i>No.of Participants required:  {Events.noOfParticipants}</li>
+                                                        </ul>
+
+
+                                                        <p>
+                                                            {Events.desc}
+                                                        </p>
+                                                        <Link to="/registration" className="book-a-table-btn ">Delete</Link>
+                                                        {/* <Link to="/" className="book-a-table-btn ">Update</Link>
+                                <Link to="/" className="book-a-table-btn ">Delete</Link> */}
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div className="swiper-pagination"></div>
+
+                                    </div>
+
+                                </div>
+                            </section>
+
+                        </div>
+
+                    </div>
+
+                ))}
+                {/* <Footer /> */}
+            </div>
+        )
+    }
+
+}
+
+export default DeleteEvents;

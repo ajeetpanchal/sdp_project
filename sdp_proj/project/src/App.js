@@ -20,8 +20,9 @@ import Events from './Events';
 import Registration from './Registration';
 import Admin from './admin';
 import Addevent from './addevent';
+import UpdateeventForm from './updateeventForm';
 import Updateevent from './updateevent';
-// import Deleteevent from './deleteevent';
+import Deleteevent from './deleteevent';
 import Profile from './profile';
 // import {AuthProvider} from "../contexts/AuthContext"
 import Start from './start';
@@ -51,8 +52,9 @@ function App() {
     <Route path="/registration" element={<Registration/>}/>
     <Route path="/admin" element={<Admin/>}/>
     <Route path="/addevent" element={<Addevent/>}/>
+    <Route path="/updateeventForm" element={<UpdateeventForm/>}/>
     <Route path="/updateevent" element={<Updateevent/>}/>
-    {/* <Route path="/deleteevent" element={<Deleteevent/>}/> */}
+    <Route path="/deleteevent" element={<Deleteevent/>}/>
     <Route path="/profile" element={<Profile/>}/>
     {/* <Route path="/logout" element={<Logout/>}/> */}
     

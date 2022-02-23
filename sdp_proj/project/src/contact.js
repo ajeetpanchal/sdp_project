@@ -55,7 +55,7 @@ export default function Contact(){
               <div className="phone">
                 <i className="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>+1 5589 55488 555</p>
               </div>
 
             </div>
