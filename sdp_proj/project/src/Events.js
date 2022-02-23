@@ -117,8 +117,6 @@ class Events extends Component {
 
 }
 
-<<<<<<< HEAD
+
 export default Events;
-=======
-export default Events;
->>>>>>> 0c2297ff14af2f5e1b19b635c29afd2586f7587e
+

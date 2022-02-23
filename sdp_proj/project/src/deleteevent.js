@@ -11,7 +11,9 @@ import './events.css'
 import React, { Component } from "react";
 
 class DeleteEvents extends Component {
-
+    constructor(props) {
+        super(props);
+    }
     state = {
         info: [],
     };
@@ -33,23 +35,15 @@ class DeleteEvents extends Component {
     };
 
     componentDidMount = () => {
-        this.fetchData();
+        this.props.fetchData();
     };
 
     render() {
-        // const myStyle = {
-        //     color: "black",
-        //     background:"hidden",
-        //     font:"40px",
-        //     padding:"0px",
-        //     margin:"0px",
-        //     fontFamily: "Arial"
-
-        //   };
+        
         return (
             <div>
                 {/* <Navbar /> */}
-                {/* <p style={myStyle}>Events</p> */}
+                
                 {this.state.info.map((Events, index) => (
                       
                     <div className="btns">
@@ -96,7 +90,7 @@ class DeleteEvents extends Component {
                                                         <p>
                                                             {Events.desc}
                                                         </p>
-                                                        <Link to="/registration" className="book-a-table-btn ">Delete</Link>
+                                                        <button  className="book-a-table-btn scrollto d-none d-lg-flex" style={{color:"black"}} onClick={event=>db.collection('Events').doc(props.event.id).delete()}>Delete</button>
                                                         {/* <Link to="/" className="book-a-table-btn ">Update</Link>
                                 <Link to="/" className="book-a-table-btn ">Delete</Link> */}
 
