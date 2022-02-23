@@ -127,4 +127,8 @@ class DeleteEvents extends Component {
 
 }
 
+<<<<<<< HEAD
 export default DeleteEvents;
+=======
+export default DeleteEvents;
+>>>>>>> 0c2297ff14af2f5e1b19b635c29afd2586f7587e

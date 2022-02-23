@@ -7,7 +7,14 @@ const updateevent = () => {
             <div className='container'>
             <form1>
               <h2>Update Event</h2>
+<<<<<<< HEAD
   
+=======
+  <div className="form-group">
+    <label for="exampleFormControlInput1">Event Name</label>
+    <input type="name" class="form-control" id="exampleFormControlInput1" placeholder=" Enter event name"/>
+  </div>
+>>>>>>> 0c2297ff14af2f5e1b19b635c29afd2586f7587e
   <div className="form-group">
     <label for="exampleFormControlInput1">Location</label>
     <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter location"/>
@@ -20,7 +27,23 @@ const updateevent = () => {
     <label for="exampleFormControlInput1">Time</label>
     <input type="time" class="form-control" id="exampleFormControlInput1" placeholder="Enter time"/>
   </div>
+<<<<<<< HEAD
   
+=======
+  <div className="form-group">
+    <label for="exampleFormControlInput1">Amount</label>
+    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter amount"/>
+  </div>
+  <div className="form-group">
+    <label for="exampleFormControlInput1">No.of participants required</label>
+    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter no.of participants"/>
+  </div>
+  <div className="form-group">
+    <label for="exampleFormControlInput1">Enter appropriate image for event</label>
+    <br/>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1" placeholder="Enter appropriate image for event"/>
+  </div>
+>>>>>>> 0c2297ff14af2f5e1b19b635c29afd2586f7587e
   {/* <div className="form-group">
     <label for="exampleFormControlSelect1">Example select</label>
     <select className="form-control" id="exampleFormControlSelect1">
@@ -41,7 +64,14 @@ const updateevent = () => {
       <option>5</option>
     </select>
   </div> */}
+<<<<<<< HEAD
  
+=======
+  <div className="form-group">
+    <label for="exampleFormControlTextarea1">Add Description</label>
+    <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+>>>>>>> 0c2297ff14af2f5e1b19b635c29afd2586f7587e
   <div className="text-center"><button type="submit">Submit</button></div>
 </form1>
 </div>
