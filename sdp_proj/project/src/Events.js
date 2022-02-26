@@ -21,6 +21,8 @@ class Events extends Component {
         db.collection("Events")
             .get()
             .then((querySnapshot) => {
+                // var id=querySnapshot.getKey();
+                
                 // Loop through the data and store
                 // it in array to display
                 querySnapshot.forEach((element) => {
@@ -63,7 +65,7 @@ class Events extends Component {
                                             <div className="swiper-slide">
                                                 <div className="row event-item">
                                                     <div className="col-lg-6">
-                                                        <img src={Events.url} className="img-fluid" alt=" " />
+                                                        <img src={Events.image} className="img-fluid" alt=" " height={683} width={1024}/>
                                                     </div>
 
                                                     <div className="col-lg-6 pt-4 pt-lg-0 content">
@@ -72,7 +74,7 @@ class Events extends Component {
                                                             {/* <p><span>$189</span></p> */}
                                                         </div>
 
-                                                        <p className="fst-italic">
+                                                        <p className="fst-bold">
                                                             Location:     {Events.location}
                                                         </p>
                                                         <ul>
@@ -119,4 +121,3 @@ class Events extends Component {
 
 
 export default Events;
-

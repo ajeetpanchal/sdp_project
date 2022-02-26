@@ -1,12 +1,44 @@
-import React from 'react'
+import React,{Component} from 'react'
 import { Link } from 'react-router-dom'
 import './profile.css'
 import './navbar'
 import './Footer'
 import Navbar from './navbar'
 import Footer from './Footer'
+import { db } from "./firebase";
 
-const profile = () => {
+const Profile = ()=>{
+    // state = {
+    //     info: [],
+    // };
+
+    // fetchData = () => {
+    //     db.collection("Users")
+    //         .get()
+    //         .then((querySnapshot) => {
+    //             // var id=querySnapshot.getKey();
+                
+    //             // Loop through the data and store
+    //             // it in array to display
+    //             querySnapshot.forEach((element) => {
+    //                 var data = element.data();
+    //                 // console.log(data);
+    //                 let { info } = this.state;
+    //                 info.push(data);
+    //                 this.setState({ info });
+    //             });
+    //         });
+    // };
+
+    // componentDidMount = () => {
+    //     if(Auth.auth().currentUser!==NULL){
+    //         let uid=Auth.auth().currentUser?.uid
+    //     }else{
+    //         return
+    //     }
+    //     this.fetchData();
+    // };
+    // render (){
   return (
     <>
     <Navbar/>
@@ -122,54 +154,7 @@ const profile = () => {
                                             </div>
                                         </div>
                             </div>
-                            {/* <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Experience</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Hourly Rate</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>10$/hr</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Total Projects</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>230</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
-                                </div>
-                            </div> */}
+                            
                         </div>
                     </div>
                 </div>
@@ -179,6 +164,7 @@ const profile = () => {
         <Footer/>
     </>
   )
+// }
 }
 
-export default profile
+export default Profile

@@ -24,6 +24,7 @@ import UpdateeventForm from './updateeventForm';
 import Updateevent from './updateevent';
 import Deleteevent from './deleteevent';
 import Profile from './profile';
+import ForgotPassword from './ForgotPassword';
 // import {AuthProvider} from "../contexts/AuthContext"
 import Start from './start';
 // import Logout form './logout';
@@ -56,6 +57,7 @@ function App() {
     <Route path="/updateevent" element={<Updateevent/>}/>
     <Route path="/deleteevent" element={<Deleteevent/>}/>
     <Route path="/profile" element={<Profile/>}/>
+    <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
     {/* <Route path="/logout" element={<Logout/>}/> */}
     
     </Routes>

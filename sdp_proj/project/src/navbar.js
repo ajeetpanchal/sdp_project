@@ -1,11 +1,12 @@
-import React from "react";
+import React,{useEffect} from "react";
 import './Events';
 import './Home';
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink,useNavigate} from "react-router-dom";
 import './contact'
 import './profile'
 import './Login.js'
 import './start'
+
 // import {db, auth} from "./firebase"
 
 // const handleLogout = () => {
@@ -15,6 +16,23 @@ import './start'
 //   setPassword("");
 //   localStorage.clear();
 // }; 
+
+// let navigate = useNavigate();
+// useEffect(() => {
+//   let authToken = sessionStorage.getItem('Auth Token')
+//   console.log(authToken)
+//   if (authToken) {
+//       navigate('/')
+//   }
+
+//   if (!authToken) {
+//       navigate('/')
+//   }
+// }, [])
+// const handleLogout = () => {
+//   sessionStorage.removeItem('Auth Token');
+//   navigate('/')
+// }
 
 export default function Navbar(){
       // function logoutFunction(){
@@ -62,7 +80,7 @@ export default function Navbar(){
       {/* <a href="#book-a-table" className="book-a-table-btn scrollto d-none d-lg-flex">Log out</a> */}
       {/* <a href="/" className="book-a-table-btn scrollto d-none d-lg-flex">Log out</a> */}
       {/* <a href="/login" className="book-a-table-btn scrollto d-none d-lg-flex" >Sign out</a> */}
-      <button  className="book-a-table-btn scrollto d-none d-lg-flex" style={{color:"black"}}/*onClick={handleLogout}*/>Sign out</button>
+      <button  className="book-a-table-btn scrollto d-none d-lg-flex" style={{color:"black"}} /*onClick={handleLogout}*/>Sign out</button>
 
     </div>
   </header>

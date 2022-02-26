@@ -19,8 +19,7 @@ const Signup = () => {
   const navigate=useNavigate();
   
   const handleSubmit = (event) => {
-    
-    event.preventDefault()
+    event.preventDefault();
   //  const auth = getAuth();
 // createUserWithEmailAndPassword(auth, email, password)
      auth.createUserWithEmailAndPassword(email, password)
@@ -33,7 +32,8 @@ const Signup = () => {
         eid:eid,
         mno: mno,
         dept: dept
-      }).then(()=>{
+      })
+      .then(()=>{
         navigate("/home")
       })
     })

@@ -20,33 +20,34 @@ const Addevent = () => {
       const[image,setImage]=useState(null);
       const [url, setUrl] = useState("");
       const[desc,setDesc]=useState("");
+      const[eid,setEid]=useState("");
 
-      const handleChange = e => {
-        if (e.target.files[0]) {
-          setImage(e.target.files[0]);
-        }
-      }; 
+      // const handleChange = (e) => {
+      //   if (e.target.files[0]) {
+      //     setImage(e.target.files[0]);
+      //   }
+      // }; 
 
-      const handleUpload = () => {
-        const uploadTask = storage.ref(`images/${image.name}`).put(image);
-        uploadTask.on(
-          "state_changed",
-          snapshot => {
-          },
-          error => {
-            console.log(error);
-          },
-          () => {
-            storage
-              .ref("images")
-              .child(image.name)
-              .getDownloadURL()
-              .then(url => {
-                setUrl(url);
-              });
-          }
-        );
-      };
+      // const handleUpload = () => {
+      //   const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      //   uploadTask.on(
+      //     "state_changed",
+      //     snapshot => {
+      //     },
+      //     error => {
+      //       console.log(error);
+      //     },
+      //     () => {
+      //       storage
+      //         .ref("images")
+      //         .child(image.name)
+      //         .getDownloadURL()
+      //         .then(url => {
+      //           setUrl(url);
+      //         });
+      //     }
+      //   );
+      // };
 
       let navigate=useNavigate();
       const handleSubmit = (event) => {
@@ -62,11 +63,12 @@ const Addevent = () => {
             time:time,
             amount:amount,
             noOfParticipants:noOfParticipants,
-            // image:image,
-            desc:desc,
-            url:url
-          }).then(()=>{
-            navigate("/admin")
+            image:image,
+            desc:desc
+            // url:url
+          }).then((docRef)=>{
+              db.collection("Events").doc(docRef.id).add({eid:docRef.id});
+              navigate("/admin");
           })
         // })
       }
@@ -115,9 +117,9 @@ const Addevent = () => {
   <div className="form-group">
     <label for="exampleFormControlInput1" style={{color:"#d9ba85"}}>Enter appropriate image link</label>
     <br/>
-    <input type="file" class="form-control" name="image" id="exampleFormControlFile1" placeholder="Enter appropriate image for event" onChange={handleChange}
+    <input type="text" class="form-control" name="image" id="exampleFormControlFile1" placeholder="Enter appropriate image for event" onChange={(e) => setImage(e.target.value)}
                 required/>
-             <button onClick={handleUpload}>Upload</button>   
+             {/* <button onClick={handleUpload}>Upload</button>    */}
   </div>
   {/* <div className="form-group">
     <label for="exampleFormControlSelect1">Example select</label>

@@ -1,9 +1,9 @@
 import React from 'react'
 import './addevent.css'
-const updateevent = () => {
+const UpdateeventForm = () => {
     return (
         <>
-            <div className='bg'>
+            <div className='bg1'>
             <div className='container'>
             <form1>
               <h2>Update Event</h2>
@@ -51,4 +51,4 @@ const updateevent = () => {
     )
 }
 
-export default updateevent
+export default UpdateeventForm

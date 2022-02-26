@@ -6,7 +6,7 @@ import './deleteevent';
 import './viewdetails';
 import  './admin.css';
 
- const admin = () =>{
+ const Admin = () =>{
   return <>
   <div className='bg1'>
      <div className='mid1'>
@@ -21,4 +21,4 @@ import  './admin.css';
   </>;
 }
 
-export default admin;
+export default Admin;

@@ -74,7 +74,7 @@ class Updateevents extends Component {
                                             <div className="swiper-slide">
                                                 <div className="row event-item">
                                                     <div className="col-lg-6">
-                                                        <img src={require("./assets/img/event-birthday.jpg")} className="img-fluid" alt="" />
+                                                        <img src={Events.image} className="img-fluid" alt="" height={683} width={1024}/>
                                                     </div>
 
                                                     <div className="col-lg-6 pt-4 pt-lg-0 content">
